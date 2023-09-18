@@ -34,7 +34,16 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-  ManualApprove:
+  Systest-Deploy:
+    needs: build
+    environment:
+      name: approvers
+    runs-on: ubuntu-latest
+    steps:
+      - name: manual approve
+        run: |
+          echo "Manually approved"
+  Staging-Deploy:
     needs: build
     environment:
       name: approvers
