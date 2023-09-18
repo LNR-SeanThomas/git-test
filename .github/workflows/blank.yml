@@ -40,15 +40,15 @@ jobs:
       name: systest
     runs-on: ubuntu-latest
     steps:
-      - name: manual approve
+      - name: systest deploy authoring
         run: |
-          echo "Manually approved"
+          echo "systest approved"
   Staging-Deploy:
     needs: build
     environment:
       name: staging
     runs-on: ubuntu-latest
     steps:
-      - name: manual approve
+      - name: staging deploy authoring
         run: |
-          echo "Manually approved"
+          echo "staging approved"
