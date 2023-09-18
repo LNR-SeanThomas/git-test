@@ -37,7 +37,7 @@ jobs:
   Systest-Deploy:
     needs: build
     environment:
-      name: approvers
+      name: systest
     runs-on: ubuntu-latest
     steps:
       - name: manual approve
@@ -46,7 +46,7 @@ jobs:
   Staging-Deploy:
     needs: build
     environment:
-      name: approvers
+      name: staging
     runs-on: ubuntu-latest
     steps:
       - name: manual approve
