@@ -52,3 +52,12 @@ jobs:
       - name: staging deploy authoring
         run: |
           echo "staging approved"
+
+  AfterPrinter:
+    if: ${{ always() }}
+    needs: [Systest-Deploy, Staging-Deploy]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Testing
+        run: |
+          echo "$name approved"
