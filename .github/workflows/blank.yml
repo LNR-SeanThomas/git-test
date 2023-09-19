@@ -43,6 +43,6 @@ jobs:
       - name: systest deploy authoring
         run: |
           echo "systest approved"
-          apt-get update -y
-          apt-get install -y iputils-ping
+          sudo apt-get update -y
+          sudo apt-get install -y iputils-ping
           ping artifacts.cha.rbxd.ds -c 10
