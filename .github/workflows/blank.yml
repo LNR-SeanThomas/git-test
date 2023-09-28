@@ -39,8 +39,23 @@ jobs:
     environment:
       name: systest
     runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
     steps:
       - name: systest deploy authoring
+        run: |
+          echo "systest approved"
+          sudo apt-get update -y
+          sudo apt-get install -y iputils-ping
+          ping artifacts.cha.rbxd.ds -c 10
+
+  Staging-Deploy:
+    needs: build
+    environment:
+      name: staging
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+      - name: staging deploy authoring
         run: |
           echo "systest approved"
           sudo apt-get update -y
